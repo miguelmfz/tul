@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tul-test-3b3e7": {
+      "hosting": {
+        "tul": [
+          "tul-test-3b3e7"
+        ]
+      }
+    }
+  }
+}
