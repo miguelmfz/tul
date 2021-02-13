@@ -4,14 +4,17 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
-
-import { appReducers } from './app.reducer';
-
-import { environment } from 'src/environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+
+import { AppComponent } from './app.component';
+import { appReducers } from './app.reducers';
+import { environment } from 'src/environments/environment';
+import { SharedModule } from './shared/components/shared.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
       maxAge:25,logOnly:environment.production
-    })
+    }),
+    SharedModule,
+    DashboardModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

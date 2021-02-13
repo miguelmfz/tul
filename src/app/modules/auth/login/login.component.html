@@ -1,0 +1,20 @@
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+<div class="wrapper">
+    <div class="left">
+      <div class="header">
+        <h2 class="animation a1">TüL</h2>
+        <h4 class="animation a2">Log in to your account using email and password</h4>
+      </div>
+      <div class="form">
+        <input formControlName="email" type="email" class="form-field animation a3" placeholder="Email Address">
+        <input formControlName="password" type="password" class="form-field animation a4" placeholder="Password">
+        
+        <button type="submit" class="animation a5">LOGIN</button>
+        <div class="clearfix"></div>
+        <a class="noback animation a6" routerLink="/auth/register">Create account</a>
+      </div>
+    </div>
+    <div class="right"></div>
+  </div>
+</form>
+  

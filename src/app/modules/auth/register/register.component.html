@@ -1,0 +1,21 @@
+<form [formGroup]="registerForm"  (ngSubmit)="createUser()">
+  <div class="wrapper">
+    <div class="left">
+      <div class="header">
+        <h2 class="animation a1">Welcome Back</h2>
+        <h4 class="animation a2">Log in to your account using email and password</h4>
+      </div>
+      <div class="form">
+        <input formControlName="name" type="text" class="form-field animation a3" placeholder="Full Name">
+        <input formControlName="tel" type="number" class="form-field animation a3" placeholder="Phone Number">
+        <input formControlName="email" type="email" class="form-field animation a3" placeholder="Email Address">
+        <input formControlName="password" type="password" class="form-field animation a4" placeholder="Password">        
+        <button type="submit" class="animation a5">SIGN UP</button>
+        <div class="clearfix"></div>
+        <a class="noback animation a6" routerLink="/auth/login">SIGN IN</a>
+      </div>
+    </div>
+    <div class="right"></div>
+  </div>
+</form>
+  
