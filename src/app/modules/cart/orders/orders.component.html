@@ -1,0 +1,18 @@
+<div class="container mt-5 mb-5">
+    
+    <div class="clearfix"></div>
+    <div class="row">
+        <div *ngFor="let order of orders" class="col-md-4 mb-3">
+            <div  class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">{{order.name}}</h5>
+                <p class="card-subtitle text-muted">EMAIL:{{order.email}}</p>
+                <p class="card-subtitle text-muted">TEL:{{order.tel}} </p>
+                <p class="card-subtitle text-muted">TOTAL:{{order.total}} </p>
+                <a [routerLink]="[ '/cart/orders/details', order.id ]" class="card-link">View More</a>
+            
+                </div>
+            </div> 
+        </div>        
+    </div>   
+</div>

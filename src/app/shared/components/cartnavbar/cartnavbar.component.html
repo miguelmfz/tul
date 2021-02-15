@@ -9,14 +9,20 @@
           <ul class="navbar-nav mr-auto">          
             <li class="nav-item" *ngFor="let category of categories; let i=index">
               <a class="nav-link" routerLink="cart/category/{{category.id}}" (click)="getProductByCategoty(category.id)"  >{{category.name}} <span class="sr-only">(current)</span></a>
-            </li>          
+            </li>     
+                 
           </ul>   
-          <ul class="navbar-nav navbar-right">        
+          <ul class="navbar-nav navbar-right">    
+              
+             
             <li class="nav-item">
-              <a class="nav-link" href="#" id="cart">
+              <a class="nav-link"  id="cart">
                 <i  class="fa fa-shopping-cart"></i> Cart <span class="badge">{{products.length}}</span>
               </a>
             </li>
+            <li class="nav-item" *ngIf="this.isAuth">
+              <a class="nav-link" routerLink="cart/orders"  >Orders history<span class="sr-only">(current)</span></a>
+            </li>  
           </ul>      
         </div>
       </div>

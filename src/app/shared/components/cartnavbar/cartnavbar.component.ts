@@ -10,6 +10,8 @@ import { Category } from '../../models/category.model';
 import { Product } from '../../models/products.model';
 import * as $ from 'jquery'
 import { Cart } from '../../models/cart.model';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-cartnavbar',
@@ -21,10 +23,15 @@ export class CartnavbarComponent implements OnInit {
   products : Cart[] = []
   categories:Category[]=[]
   total:number = 0
-  constructor(private store:Store<AppState>,private categoriesServices : CategoryService,private activatedRoute:ActivatedRoute,private productsService:ProductsService) { }
+  isAuth:boolean 
+
+  constructor(
+    private store:Store<AppState>,
+    private categoriesServices : CategoryService,
+    private authSservice:AuthService,
+    private productsService:ProductsService) { }
   
   ngOnInit(): void {
-
     this.store.select('cart').subscribe((res)=>{
       this.products = res.productOfCart
       this.total= 0
@@ -37,12 +44,15 @@ export class CartnavbarComponent implements OnInit {
     this.categoriesServices.getCategories().subscribe((res:Category[])=>{     
       this.categories=res
     })
+    
+    this.authSservice.isAuth().subscribe(res=>{
+      this.isAuth=res
+    })
 
     
     $("#cart").on("click", function() {
       $(".shopping-cart").fadeToggle( "fast");
     });      
-    
   }
 
   getProductByCategoty(id:string){

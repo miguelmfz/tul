@@ -8,15 +8,14 @@
         <div class="col-md-4">
             <div class="card" style="width: 18rem;">            
                 <div class="card-body">
-                <h5 class="card-title">CHECK OUT</h5>
-                <p class="card-text">The estimated delivery time is 3-4 days.</p>
+                <h5 class="card-title">PURCHASE</h5>               
                 </div>
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item">Total:{{total|currency}}</li>
                 
                 </ul>
                 <div class="card-body">
-                <a (click)="checkOut()" class="btn btn-primary btn-block">CKECK OUT</a>
+                <a routerLink="/cart/orders" class="btn btn-primary btn-block">RETURN</a>
                 
                 </div>
             </div>

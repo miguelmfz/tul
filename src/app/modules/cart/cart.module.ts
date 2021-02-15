@@ -11,13 +11,15 @@ import { CardComponent } from './card/card.component';
 import { SharedModule } from 'src/app/shared/components/shared.module';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { BasketComponent } from './basket/basket.component';
+import { OrdersComponent } from './orders/orders.component';
+import { OrdersDetailsComponent } from './orders-details/orders-details.component';
 
 
 
 
 
 @NgModule({
-  declarations: [IndexComponent, HomeComponent, ProductsByCategoryComponent, ProductDetailsComponent, CardComponent, CategoryCardComponent, BasketComponent],
+  declarations: [IndexComponent, HomeComponent, ProductsByCategoryComponent, ProductDetailsComponent, CardComponent, CategoryCardComponent, BasketComponent, OrdersComponent, OrdersDetailsComponent],
   imports: [
     CommonModule,
     CartRoutesModule,ReactiveFormsModule,FormsModule,SharedModule

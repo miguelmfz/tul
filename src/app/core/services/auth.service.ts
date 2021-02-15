@@ -15,7 +15,7 @@ import { User,typeOfUser } from 'src/app/shared/models/user.model';
 export class AuthService {
 
   userSup:Subscription;
-  private _user:User;
+  private _userActive:User;
 
   constructor(private auth:AngularFireAuth,
     private firestore:AngularFirestore,private store :Store<AppState>) { }
@@ -25,17 +25,18 @@ export class AuthService {
         if(user){
           this.userSup=this.firestore.doc(`/${user.uid}/user`).valueChanges().subscribe((res:any) =>{
             const user = User.fromFirabase(res)
-            this._user = user;
+            this._userActive = user;
             this.store.dispatch(setUser({user:user} ))        
           })        
         }else{
           this.userSup?.unsubscribe()
           this.store.dispatch(unSetUser())
-          this._user = null;
+          this._userActive = null;
         }     
         
       })
     }
+
 
   createUser(name:string,email:string,password:string,tel:string){   
     return this.auth.createUserWithEmailAndPassword(email,password)
@@ -53,6 +54,9 @@ export class AuthService {
 
   logOut(){
     return this.auth.signOut();
+  }
+  get user(){
+    return {...this._userActive} ;
   }
 
   isAuth(){

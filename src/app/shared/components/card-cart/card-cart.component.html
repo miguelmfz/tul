@@ -1,0 +1,19 @@
+<div class="card mb-3" *ngFor="let product of products; let i=index">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{product.imgUrl}}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="product-info">
+                    <h5 class="product-name">{{product.name}}</h5>		        			
+                    <div class="product-price-discount"><span>{{ product.promotionPrice >  0 ?( product.promotionPrice | currency) :  product.price | currency }}</span>
+                        <span *ngIf="product.promotionPrice >  0"   class="line-through">{{ product.price | currency }}</span>
+                    </div>
+                    <p>Quantity:{{product.quantity}}</p>
+                </div>                    
+                <p>{{product.features | slice:0:80}}...</p>
+            </div>
+        </div>
+    </div>
+</div>
