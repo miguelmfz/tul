@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="mb-3 col-md-12">
+        <img class="img-fluid"   src="/assets/subbanner.png" data-holder-rendered="true">
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let category of categories; let i=index">
+            <div  style="width: 100%;" >
+                <img class="card-img-top"  style="height: 270px; width: 100%; display: block;" src="{{category.urlImage}}" data-holder-rendered="true">
+                <div class="card-body text-center">
+                    <a href="#" routerLink="cart/category/{{category.id}}" class="card-title text-primary">{{category.name}}</a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,8 @@
+
+
+.mt-5{ margin-top:6rem!important} 
+
+.card-img, .card-img-bottom, .card-img-top {
+    flex-shrink: 0;
+    width: 50%;
+}

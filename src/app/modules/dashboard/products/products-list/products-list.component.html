@@ -1,1 +1,56 @@
-<p>products-list works!</p>
+
+<div class="card">
+    <div class="card-header">      
+      <div class="row">
+        <h4>List of categories</h4>
+        
+        <div class="col text-right">
+          <button [routerLink]="[ '/dashboard/products/new' ]"  class="btn btn-primary">
+              <i class="fa fa-plus"></i>
+              Add
+          </button>          
+        </div>    
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="mt-2 row">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Promotion Price</th>
+              <th scope="col"></th>        
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of products; let i=index" > 
+              <th scope="row">{{i}}</th>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.promotionPrice}}</td>
+
+              <th scope="row"><a class="btn btn-info mr-1"
+                [routerLink]="['/dashboard/products',item.id]">
+                <i class="fa fa-pen"></i>
+              </a>
+      
+                <button (click)="delete(item,i)" class="btn btn-danger mr-1">
+                <i class="fa fa-trash"></i>
+                </button></th>
+              
+            </tr>          
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+  
+   
+  
+  
+  

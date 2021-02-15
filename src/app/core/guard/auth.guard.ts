@@ -7,8 +7,9 @@ import { AuthService } from '../services/auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanLoad{
+export class AuthGuard implements CanLoad,CanActivate{
   constructor(private authServices:AuthService,private router:Router){}
+  
   
   canLoad():Observable<boolean> {
     return this.authServices.isAuth()
@@ -16,6 +17,14 @@ export class AuthGuard implements CanLoad{
       tap(state=>{
         if(!state){this.router.navigate(["/auth"])}
       }),take(1)
+    );
+  }
+  canActivate():Observable<boolean> {
+    return this.authServices.isAuth()
+    .pipe(
+      tap(state=>{
+        if(!state){this.router.navigate(["/auth"])}
+      })
     );
   }
   

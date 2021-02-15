@@ -1,0 +1,56 @@
+<div *ngIf="product" class="pd-wrap">
+		<div class="container">
+	        <div class="heading-section">
+	            <h2></h2>
+	        </div>
+	        <div class="row">
+	        	<div class="col-md-6">
+	        		<div id="slider" class="owl-carousel product-slider">
+						<div class="item">
+						  	<img class="img-fluid" src="{{product.imgUrl}}" />
+						</div>
+						
+					</div>
+				
+	        	</div>
+	        	<div class="col-md-6">
+	        		<div class="product-dtl">
+        				<div class="product-info">
+		        			<div class="product-name">{{product.name}}</div>		        			
+		        			<div class="product-price-discount"><span>{{ product.promotionPrice >  0 ?( product.promotionPrice | currency) :  product.price | currency }}</span><span *ngIf="product.promotionPrice >  0"   class="line-through">{{ product.price | currency }}</span></div>
+		        		</div>
+                        
+	        			<p>{{product.features | slice:0:80}}...</p>
+	        			
+	        			<div class="product-count">
+	        				<label for="size">Quantity</label>
+	        				<form [formGroup]="detailForm" class="display-flex">							    
+							    <input type="number" formControlName="quantity"  name="quantity" value="1" class="qty">							  
+							</form>
+                            <div class="btn-group">
+                                <a  (click)="addToCart()" class="btn round-black-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a href="#" class="rbtn round-black-btn"><i class="fa fa-home"></i> Back to Home</a>
+                            </div>
+							
+	        			</div>
+	        		</div>
+	        	</div>
+	        </div>
+	        <div class="product-info-tabs">
+		        <ul class="nav nav-tabs" id="myTab" role="tablist">
+				  	<li class="nav-item">
+				    	<a class="nav-link active" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+				  	</li>
+				  	<li class="nav-item">
+				    	<a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review" aria-selected="false">Reviews (0)</a>
+				  	</li>
+				</ul>
+				<div class="tab-content" id="myTabContent">
+				  	<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                        {{product.features }}
+				  	</div>				  	
+				</div>
+			</div>
+			
+		</div>
+	</div>

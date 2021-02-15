@@ -33,6 +33,27 @@ export class SwalService {
       })
   }
 
+  public Done(text:string){
+    Swal.fire({
+       icon: 'success',
+       title: 'Your work has been saved',
+       text: text, 
+       timer: 1500        
+     })
+ }
+
+  ConfirmDelete(){
+   
+    return Swal.fire({
+      title: 'Do you want delete this?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: `Delete`,
+      denyButtonText: `Don't Delete`,
+    })
+
+ }
+
 
   public close(){
     Swal.close()

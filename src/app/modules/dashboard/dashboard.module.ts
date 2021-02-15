@@ -11,12 +11,15 @@ import { ProductsFormComponent } from './products/products-form/products-form.co
 import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './products/products-list/products-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [IndexComponent, OrdersListComponent, OrdersDetailsComponent, ProductsFormComponent, CategoriesListComponent, CategoriesFormComponent, ProductsListComponent],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     DashboardRoutesModule,
     SharedModule,

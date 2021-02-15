@@ -1,0 +1,31 @@
+
+
+<div class="mt-5 container">
+    <div class="mb-3 col-md-12">
+        <img class="img-fluid"   src="/assets/bannerproductos.jpg" data-holder-rendered="true">
+    </div>
+    <div class="row">
+        <div class="mb-3 col-md-4" *ngFor="let product of products; let i=index">
+            <div class="product-card">           
+                <div class="product-tumb">
+                    <img src="{{product.imgUrl}}" alt="">
+                </div>
+                <div class="product-details">                    
+                    <h5><a routerLink="/cart/prduct-details/{{product.id}}">{{product.name}}</a></h5>
+                    <p>{{product.features | slice:0:80}}...</p>
+                    
+                    <div class="product-links">
+                        <a href=""><i class="fa fa-heart"></i></a>
+                        <a routerLink="/cart/prduct-details/{{product.id}}"><i class="fa fa-shopping-cart"></i></a>
+                    </div>
+                    <div class="product-bottom-details">
+                        <div class="product-price">
+                            <small *ngIf="product.promotionPrice >  0" >{{ product.price | currency }}</small>{{ product.promotionPrice >  0 ?( product.promotionPrice | currency) :  product.price | currency }}
+                        </div>                     
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

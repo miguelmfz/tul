@@ -12,7 +12,8 @@ export const environment = {
     messagingSenderId: "955947279825",
     appId: "1:955947279825:web:c494090b8edcadd369ecf0",
     measurementId: "G-PF5P9NWR1P"
-  }
+  },
+  apiUrl:"https://tul-test-3b3e7-default-rtdb.firebaseio.com/"
 };
 
 /*

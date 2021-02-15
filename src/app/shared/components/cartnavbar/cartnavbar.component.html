@@ -1,0 +1,52 @@
+ <header >
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">TüL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">          
+            <li class="nav-item" *ngFor="let category of categories; let i=index">
+              <a class="nav-link" routerLink="cart/category/{{category.id}}" (click)="getProductByCategoty(category.id)"  >{{category.name}} <span class="sr-only">(current)</span></a>
+            </li>          
+          </ul>   
+          <ul class="navbar-nav navbar-right">        
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="cart">
+                <i  class="fa fa-shopping-cart"></i> Cart <span class="badge">{{products.length}}</span>
+              </a>
+            </li>
+          </ul>      
+        </div>
+      </div>
+    </nav>
+  </header> 
+
+ 
+  
+  
+  <div class="container">
+    <div class="shopping-cart">
+      <div class="shopping-cart-header">
+        <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{products.length}}</span>
+        <div class="shopping-cart-total">
+          <span class="lighter-text">Total:</span>
+          <span class="main-color-text">{{total | currency }}</span>
+        </div>
+      </div> <!--end shopping-cart-header -->
+  
+      <ul class="shopping-cart-items">
+        <li class="clearfix" *ngFor="let product of products; let i=index" >        
+          <img src="{{product.imgUrl}}"  class="img-fluid"/>
+          <span class="item-name">{{product.name}}</span>
+          <span class="item-price">
+            <div class="product-price-discount"><span>{{ product.promotionPrice >  0 ?( product.promotionPrice | currency) :  product.price | currency }}</span>
+                / <span class="item-quantity"> Quantity: {{product.quantity}}</span>
+            </div>
+          </span>         
+        </li>  
+      </ul>  
+      <a routerLink="cart/basket" class="button"  >Checkout</a>
+    </div> <!--end shopping-cart -->
+  </div> <!--end container -->

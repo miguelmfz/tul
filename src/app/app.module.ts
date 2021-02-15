@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { appReducers } from './app.reducers';
 import { environment } from 'src/environments/environment';
 import { SharedModule } from './shared/components/shared.module';
-import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { HttpInterceptors } from './core/interceptors/http.interceptors';
+
+
 
 
 
@@ -31,9 +33,12 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
       maxAge:25,logOnly:environment.production
     }),
     SharedModule,
-    DashboardModule    
+    HttpClientModule,
+    
+   
+
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpInterceptors, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
